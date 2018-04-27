@@ -2,14 +2,14 @@
 
 var should = require('chai').should();
 var expect = require('chai').expect;
-var bitcore = require('../..');
+var ravencore = require('../..');
 
-var BufferUtil = bitcore.util.buffer;
-var Script = bitcore.Script;
-var Networks = bitcore.Networks;
-var Opcode = bitcore.Opcode;
-var PublicKey = bitcore.PublicKey;
-var Address = bitcore.Address;
+var BufferUtil = ravencore.util.buffer;
+var Script = ravencore.Script;
+var Networks = ravencore.Networks;
+var Opcode = ravencore.Opcode;
+var PublicKey = ravencore.PublicKey;
+var Address = ravencore.Address;
 
 describe('Script', function() {
 
@@ -254,7 +254,7 @@ describe('Script', function() {
       // from txid: 5c85ed63469aa9971b5d01063dbb8bcdafd412b2f51a3d24abf2e310c028bbf8
       // and input index: 5
       var scriptBuffer = new Buffer('483045022050eb59c79435c051f45003d9f82865c8e4df5699d7722e77113ef8cadbd92109022100d4ab233e070070eb8e0e62e3d2d2eb9474a5bf135c9eda32755acb0875a6c20601', 'hex');
-      var script = bitcore.Script.fromBuffer(scriptBuffer);
+      var script = ravencore.Script.fromBuffer(scriptBuffer);
       script.isPublicKeyIn().should.equal(true);
     });
   });
@@ -462,7 +462,7 @@ describe('Script', function() {
       Script('OP_0').isPushOnly().should.equal(true);
       Script('OP_0 OP_RETURN').isPushOnly().should.equal(false);
       Script('OP_PUSHDATA1 5 0x1010101010').isPushOnly().should.equal(true);
-      // like bitcoind, we regard OP_RESERVED as being "push only"
+      // like ravend, we regard OP_RESERVED as being "push only"
       Script('OP_RESERVED').isPushOnly().should.equal(true);
     });
   });
@@ -714,8 +714,8 @@ describe('Script', function() {
 
   describe('#buildWitnessMultisigOutFromScript', function() {
     it('it will build nested witness scriptSig', function() {
-      var redeemScript = bitcore.Script();
-      var redeemHash = bitcore.crypto.Hash.sha256(redeemScript.toBuffer());
+      var redeemScript = ravencore.Script();
+      var redeemHash = ravencore.crypto.Hash.sha256(redeemScript.toBuffer());
       var s = Script.buildWitnessMultisigOutFromScript(redeemScript);
       var buf = s.toBuffer();
       buf[0].should.equal(0);
@@ -947,12 +947,12 @@ describe('Script', function() {
       // taken from tx 7e519caca256423320b92e3e17be5701f87afecbdb3f53af598032bfd8d164f5
       var script = new Script('OP_DUP OP_HASH160 20 ' +
         '0xc8e11b0eb0d2ad5362d894f048908341fa61b6e1 OP_EQUALVERIFY OP_CHECKSIG');
-      script.toAddress().toString().should.equal('1KK9oz4bFH8c1t6LmighHaoSEGx3P3FEmc');
+      script.toAddress().toString().should.equal('RTbLtVwsr6wB5tTYEtfpP78dzYQe1nnv2k');
     });
     it('works for p2pkh input', function() {
       // taken from tx 7e519caca256423320b92e3e17be5701f87afecbdb3f53af598032bfd8d164f5
       var script = new Script('72 0x3045022100eff96230ca0f55b1e8c7a63e014f48611ff1af40875ecd33dee9062d7a6f5e2002206320405b5f6992c756e03e66b21a05a812b60996464ac6af815c2638b930dd7a01 65 0x04150defa035a2c7d826d7d5fc8ab2154bd1bb832f1a5c8ecb338f436362ad232e428b57db44677c5a8bd42c5ed9e2d7e04e742c59bee1b40080cfd57dec64b23a');
-      script.toAddress().toString().should.equal('1KK9oz4bFH8c1t6LmighHaoSEGx3P3FEmc');
+      script.toAddress().toString().should.equal('RTbLtVwsr6wB5tTYEtfpP78dzYQe1nnv2k');
       // taken from tx 7f8f95752a59d715dae9e0008a42e7968d2736741591bbfc6685f6e1649c21ed
       var s2 = new Script('71 0x3044022017053dad84aa06213749df50a03330cfd24d6b8e7ddbb6de66c03697b78a752a022053bc0faca8b4049fb3944a05fcf7c93b2861734d39a89b73108f605f70f5ed3401 33 0x0225386e988b84248dc9c30f784b06e02fdec57bbdbd443768eb5744a75ce44a4c');
       s2.toAddress().toString().should.equal('17VArX6GRE6i6MVscBUZoXwi6NhnHa68B7');
@@ -995,7 +995,7 @@ describe('Script', function() {
   });
 
   describe('#getSignatureOperationsCount', function() {
-    // comes from bitcoind src/test/sigopcount_tests
+    // comes from ravend src/test/sigopcount_tests
     // only test calls to function with boolean param, not signature ref param
     var pubKeyHexes = [
       '022df8750480ad5b26950b25c7ba79d3e37d75f640f8e5d9bcd5b150a0f85014da',
@@ -1021,7 +1021,7 @@ describe('Script', function() {
     });
     it('should handle P2SH-multisig-in scripts from utility', function() {
       // create a well-formed signature, does not need to match pubkeys
-      var signature = bitcore.crypto.Signature.fromString('30060201FF0201FF');
+      var signature = ravencore.crypto.Signature.fromString('30060201FF0201FF');
       var signatures = [ signature.toBuffer() ];
       var p2sh = Script.buildP2SHMultisigIn(pubKeyHexes, 1, signatures, {});
       p2sh.getSignatureOperationsCount(true).should.equal(0);

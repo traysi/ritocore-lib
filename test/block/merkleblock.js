@@ -2,11 +2,11 @@
 
 var should = require('chai').should();
 
-var bitcore = require('../..');
-var MerkleBlock = bitcore.MerkleBlock;
-var BufferReader = bitcore.encoding.BufferReader;
-var BufferWriter = bitcore.encoding.BufferWriter;
-var Transaction = bitcore.Transaction;
+var ravencore = require('../..');
+var MerkleBlock = ravencore.MerkleBlock;
+var BufferReader = ravencore.encoding.BufferReader;
+var BufferWriter = ravencore.encoding.BufferWriter;
+var Transaction = ravencore.Transaction;
 var data = require('../data/merkleblocks.js');
 var transactionVector = require('../data/tx_creation');
 
@@ -197,4 +197,3 @@ describe('MerkleBlock', function() {
   });
 
 });
-

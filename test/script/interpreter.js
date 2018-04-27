@@ -2,23 +2,23 @@
 
 var should = require('chai').should();
 var sinon = require('sinon');
-var bitcore = require('../..');
-var Interpreter = bitcore.Script.Interpreter;
-var Transaction = bitcore.Transaction;
-var PrivateKey = bitcore.PrivateKey;
-var Script = bitcore.Script;
-var BN = bitcore.crypto.BN;
-var BufferWriter = bitcore.encoding.BufferWriter;
-var Opcode = bitcore.Opcode;
+var ravencore = require('../..');
+var Interpreter = ravencore.Script.Interpreter;
+var Transaction = ravencore.Transaction;
+var PrivateKey = ravencore.PrivateKey;
+var Script = ravencore.Script;
+var BN = ravencore.crypto.BN;
+var BufferWriter = ravencore.encoding.BufferWriter;
+var Opcode = ravencore.Opcode;
 var _ = require('lodash');
 
-var script_valid = require('../data/bitcoind/script_valid');
-var script_invalid = require('../data/bitcoind/script_invalid');
-var tx_valid = require('../data/bitcoind/tx_valid');
-var tx_invalid = require('../data/bitcoind/tx_invalid');
+var script_valid = require('../data/ravend/script_valid');
+var script_invalid = require('../data/ravend/script_invalid');
+var tx_valid = require('../data/ravend/tx_valid');
+var tx_invalid = require('../data/ravend/tx_invalid');
 
-//the script string format used in bitcoind data tests
-Script.fromBitcoindString = function(str) {
+//the script string format used in ravend data tests
+Script.fromravendString = function(str) {
   var bw = new BufferWriter();
   var tokens = str.split(' ');
   for (var i = 0; i < tokens.length; i++) {
@@ -301,8 +301,8 @@ describe('Interpreter', function() {
   };
 
   var testFixture = function(vector, expected) {
-    var scriptSig = Script.fromBitcoindString(vector[0]);
-    var scriptPubkey = Script.fromBitcoindString(vector[1]);
+    var scriptSig = Script.fromravendString(vector[0]);
+    var scriptPubkey = Script.fromravendString(vector[1]);
     var flags = getFlags(vector[2]);
 
     var hashbuf = new Buffer(32);
@@ -336,7 +336,7 @@ describe('Interpreter', function() {
     var verified = interp.verify(scriptSig, scriptPubkey, spendtx, 0, flags);
     verified.should.equal(expected);
   };
-  describe('bitcoind script evaluation fixtures', function() {
+  describe('ravend script evaluation fixtures', function() {
     var testAllFixtures = function(set, expected) {
       var c = 0;
       set.forEach(function(vector) {
@@ -358,7 +358,7 @@ describe('Interpreter', function() {
     testAllFixtures(script_invalid, false);
 
   });
-  describe('bitcoind transaction evaluation fixtures', function() {
+  describe('ravend transaction evaluation fixtures', function() {
     var test_txs = function(set, expected) {
       var c = 0;
       set.forEach(function(vector) {
@@ -378,9 +378,9 @@ describe('Interpreter', function() {
             var txoutnum = input[1];
             var scriptPubKeyStr = input[2];
             if (txoutnum === -1) {
-              txoutnum = 0xffffffff; //bitcoind casts -1 to an unsigned int
+              txoutnum = 0xffffffff; //ravend casts -1 to an unsigned int
             }
-            map[txid + ':' + txoutnum] = Script.fromBitcoindString(scriptPubKeyStr);
+            map[txid + ':' + txoutnum] = Script.fromravendString(scriptPubKeyStr);
           });
 
           var tx = new Transaction(txhex);

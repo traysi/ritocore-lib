@@ -1,7 +1,7 @@
 'use strict';
 
-var bitcore = require('../..');
-var Random = bitcore.crypto.Random;
+var ravencore = require('../..');
+var Random = ravencore.crypto.Random;
 
 describe('Random', function() {
 

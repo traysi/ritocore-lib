@@ -1,7 +1,7 @@
 {
-  "name": "bitcore-lib",
-  "version": "0.14.0",
-  "description": "A pure and powerful JavaScript Bitcoin library.",
+  "name": "ravencore-lib",
+  "version": "0.1.0",
+  "description": "A pure and powerful JavaScript Ravencoin library.",
   "author": "BitPay <dev@bitpay.com>",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,10 @@
     "build": "gulp"
   },
   "contributors": [
+    {
+      "name": "Under",
+      "email": "nope@nope.com"
+    },
     {
       "name": "Daniel Cousens",
       "email": "bitcoin@dcousens.com"
@@ -57,7 +61,7 @@
     }
   ],
   "keywords": [
-    "bitcoin",
+    "ravencoin",
     "transaction",
     "address",
     "p2p",
@@ -74,7 +78,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore-lib.git"
+    "url": "https://github.com/underdarkskies/ravencore-lib.git"
   },
   "browser": {
     "request": "browser-request"
@@ -88,7 +92,7 @@
     "lodash": "=3.10.1"
   },
   "devDependencies": {
-    "bitcore-build": "bitpay/bitcore-build",
+    "ravencore-build": "underdarkskies/ravencore-build",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
     "gulp": "^3.8.10",
