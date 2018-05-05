@@ -1,4 +1,5 @@
-//todo: integrate x16r into ravencore-lib
+to-do: integrate x16r into ravencore-lib
+
 Ravencore Library
 =======
 
