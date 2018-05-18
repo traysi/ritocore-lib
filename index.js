@@ -63,6 +63,7 @@ ravencore.deps.bnjs = require('bn.js');
 ravencore.deps.bs58 = require('bs58');
 ravencore.deps.Buffer = Buffer;
 ravencore.deps.elliptic = require('elliptic');
+ravencore.deps.nodeX16r = require('node-x16r');
 ravencore.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking
