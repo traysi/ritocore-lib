@@ -77,11 +77,11 @@ describe('Address', function() {
 
   // livenet p2sh
   var P2SHLivenet = [
-    '342ftSRCvFHfCeFFBuz4xwbeqnDw6BGUey',
-    '33vt8ViH5jsr115AGkW6cEmEz9MpvJSwDk',
-    '37Sp6Rv3y4kVd1nQ1JV5pfqXccHNyZm1x3',
-    '3QjYXhTkvuj8qPaXHTTWb5wjXhdsLAAWVy',
-    '\t \n3QjYXhTkvuj8qPaXHTTWb5wjXhdsLAAWVy \r'
+    'rMaeZwKL9PKUXNB9Vjw8gzYpvy6hXUraf9',
+    'rAfsiNFiHsvDwEA1JsaE9Qmad5CgPVbELh',
+    'rQaWxhohW4mJNGmxKYCoEDuKH1R33X8Dry',
+    'rKZ4DVNYCTrH4N8KsnWzXfdFMiZ2cLqCaN',
+    '\t \nrKZ4DVNYCTrH4N8KsnWzXfdFMiZ2cLqCaN \r'
   ];
 
   // testnet p2sh
@@ -119,17 +119,17 @@ describe('Address', function() {
   describe('validation', function() {
 
     it('getValidationError detects network mismatchs', function() {
-      var error = Address.getValidationError('37BahqRsFrAd3qLiNNwLNV3AWMRD7itxTo', 'testnet');
+      var error = Address.getValidationError('r7TtcWPdAq6ZWaXHRHMb96RRtfNCUTZtse', 'testnet');
       should.exist(error);
     });
 
     it('isValid returns true on a valid address', function() {
-      var valid = Address.isValid('37BahqRsFrAd3qLiNNwLNV3AWMRD7itxTo', 'livenet');
+      var valid = Address.isValid('r7TtcWPdAq6ZWaXHRHMb96RRtfNCUTZtse', 'livenet');
       valid.should.equal(true);
     });
 
     it('isValid returns false on network mismatch', function() {
-      var valid = Address.isValid('37BahqRsFrAd3qLiNNwLNV3AWMRD7itxTo', 'testnet');
+      var valid = Address.isValid('r7TtcWPdAq6ZWaXHRHMb96RRtfNCUTZtse', 'testnet');
       valid.should.equal(false);
     });
 
@@ -388,11 +388,11 @@ describe('Address', function() {
       });
 
       it('should make this address from a p2sh input script', function() {
-        var s = Script.fromString('OP_HASH160 20 0xa6ed4af315271e657ee307828f54a4365fa5d20f OP_EQUAL');
+        var s = Script.fromString('OP_HASH160 20 0xa855147a3179ce22aab34ba743d5521b327272da OP_EQUAL');
         var a = Address.fromScript(s, 'livenet');
-        a.toString().should.equal('3GueMn6ruWVfQTN4XKBGEbCbGLwRSUhfnS');
+        a.toString().should.equal('rMaeZwKL9PKUXNB9Vjw8gzYpvy6hXUraf9');
         var b = new Address(s, 'livenet');
-        b.toString().should.equal('3GueMn6ruWVfQTN4XKBGEbCbGLwRSUhfnS');
+        b.toString().should.equal('rMaeZwKL9PKUXNB9Vjw8gzYpvy6hXUraf9');
       });
 
       it('returns the same address if the script is a pay to public key hash out', function() {
@@ -401,7 +401,7 @@ describe('Address', function() {
         Address(script, Networks.livenet).toString().should.equal(address);
       });
       it('returns the same address if the script is a pay to script hash out', function() {
-        var address = '3BYmEwgV2vANrmfRymr1mFnHXgLjD6gAWm';
+        var address = 'rCAy3YnpgFy5GbREoJ7C9kwzjjh69ucKsZ';
         var script = Script.buildScriptHashOut(new Address(address));
         Address(script, Networks.livenet).toString().should.equal(address);
       });
@@ -528,26 +528,26 @@ describe('Address', function() {
 
   describe('creating a P2SH address from public keys', function() {
 
-    var public1 = '02da5798ed0c055e31339eb9b5cef0d3c0ccdec84a62e2e255eb5c006d4f3e7f5b';
-    var public2 = '0272073bf0287c4469a2a011567361d42529cd1a72ab0d86aa104ecc89342ffeb0';
-    var public3 = '02738a516a78355db138e8119e58934864ce222c553a5407cf92b9c1527e03c1a2';
+    var public1 = '021d1c8a1c44e652644d2c8b9f796a75b5653d432dbf1ddfa1ce2285f1a7f68cdd';
+    var public2 = '028579bc5aa50778b39a66b0e2beb7546addbd7e9ff1f1b9c75324b8f9b4544ba2';
+    var public3 = '03c1b8fe018aa969fae796fafc5f46ad6f48401a0b75ec569afdab484396521bb7';
     var publics = [public1, public2, public3];
 
     it('can create an address from a set of public keys', function() {
       var address = Address.createMultisig(publics, 2, Networks.livenet);
-      address.toString().should.equal('3FtqPRirhPvrf7mVUSkygyZ5UuoAYrTW3y');
+      address.toString().should.equal('r7TtcWPdAq6ZWaXHRHMb96RRtfNCUTZtse');
       address = new Address(publics, 2, Networks.livenet);
-      address.toString().should.equal('3FtqPRirhPvrf7mVUSkygyZ5UuoAYrTW3y');
+      address.toString().should.equal('r7TtcWPdAq6ZWaXHRHMb96RRtfNCUTZtse');
     });
 
     it('works on testnet also', function() {
       var address = Address.createMultisig(publics, 2, Networks.testnet);
-      address.toString().should.equal('2N7T3TAetJrSCruQ39aNrJvYLhG1LJosujf');
+      address.toString().should.equal('2MtUXUYSwiBPQ2eqhEL1B2NZeTzS1AAWD89');
     });
 
     it('can create an address from a set of public keys with a nested witness program', function() {
       var address = Address.createMultisig(publics, 2, Networks.livenet, true);
-      address.toString().should.equal('3PpK1bBqUmPK3Q6QPSUK7BQSZ1DMWL6aes');
+      address.toString().should.equal('rNFFzSic7eKzxKxLB4bP5L1imeWGduKxEJ');
     });
 
     it('can also be created by Address.createMultisig', function() {
