@@ -90,7 +90,7 @@
     "elliptic": "=3.0.3",
     "inherits": "=2.0.1",
     "lodash": "^3.10.1",
-    "node-x16r": "github:underdarkskies/node-x16r"
+    "node-x16r": "underdarkskies/node-x16r"
   },
   "devDependencies": {
     "ravencore-build": "underdarkskies/ravencore-build",
