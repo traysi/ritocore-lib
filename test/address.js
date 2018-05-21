@@ -17,9 +17,9 @@ var invalidbase58 = require('./data/ravend/base58_keys_invalid.json');
 
 describe('Address', function() {
 
-  var pubkeyhash = new Buffer('3c3fa3d4adcaf8f52d5b1843975e122548269937', 'hex');
-  var buf = Buffer.concat([new Buffer([0]), pubkeyhash]);
-  var str = 'REmkropiJmep2g1UiTFs3P1S86b6ECosP9';
+  var pubkeyhash = new Buffer('ef8f3e801046d34fe00dde3bd33df6f887c6c327', 'hex');
+  var buf = Buffer.concat([new Buffer([60]), pubkeyhash]);
+  var str = 'RX7sB98VUdBiVLaPVkE5Whbhnd3RWcNd3C';
 
   it('can\'t build without data', function() {
     (function() {
@@ -438,7 +438,7 @@ describe('Address', function() {
 
   describe('#toBuffer', function() {
 
-    it('3c3fa3d4adcaf8f52d5b1843975e122548269937 corresponds to hash REmkropiJmep2g1UiTFs3P1S86b6ECosP9', function() {
+    it('ef8f3e801046d34fe00dde3bd33df6f887c6c327 corresponds to hash RX7sB98VUdBiVLaPVkE5Whbhnd3RWcNd3C', function() {
       var address = new Address(str);
       address.toBuffer().slice(1).toString('hex').should.equal(pubkeyhash.toString('hex'));
     });
@@ -487,7 +487,7 @@ describe('Address', function() {
   describe('#inspect', function() {
     it('should output formatted output correctly', function() {
       var address = new Address(str);
-      var output = '<Address: REmkropiJmep2g1UiTFs3P1S86b6ECosP9, type: pubkeyhash, network: livenet>';
+      var output = '<Address: RX7sB98VUdBiVLaPVkE5Whbhnd3RWcNd3C, type: pubkeyhash, network: livenet>';
       address.inspect().should.equal(output);
     });
   });
