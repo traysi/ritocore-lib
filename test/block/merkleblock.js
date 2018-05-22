@@ -182,10 +182,10 @@ describe('MerkleBlock', function() {
       var b = MerkleBlock(data.JSON[0]);
 
       var hashData = [
-        ['3612262624047ee87660be1a707519a443b1c1ce3d248cbfc6c15870f6c5daa2', false],
-        ['019f5b01d4195ecbc9398fbf3c3b1fa9bb3183301d7a1fb3bd174fcfa40a2b65', true],
-        ['41ed70551dd7e841883ab8f0b16bf04176b7d1480e4f0af9f3d4c3595768d068', false],
-        ['20d2a7bc994987302e5b1ac80fc425fe25f8b63169ea78e68fbaaefa59379bbf', false]
+        ['86256652b60bafa12dc31acea84e2c0cbe612dd5e9a181a0a8be2bea047fd76f', false],
+        ['d852d4e912975bffccf5b1a617e4c3ac1e7b91afc244f7984e95013bdc867367', true],
+        ['f63691f75198cdd26ac81a0355a397763adda0bd5c1f7204712b9648aac9277e', false],
+        ['7c15ffbd38fc78bfa1b12268f48c2ed256e6b8dd865061a1eb6d8952c9fcd56b', false]
       ];
 
       hashData.forEach(function check(d){

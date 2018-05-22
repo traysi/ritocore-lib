@@ -15,17 +15,17 @@ var MultiSigScriptHashInput = ravencore.Transaction.Input.MultiSigScriptHash;
 
 describe('MultiSigScriptHashInput', function() {
 
-  var privateKey1 = new PrivateKey('KwF9LjRraetZuEjR8VqEq539z137LW5anYDUnVK11vM3mNMHTWb4');
-  var privateKey2 = new PrivateKey('L4PqnaPTCkYhAqH3YQmefjxQP6zRcF4EJbdGqR8v6adtG9XSsadY');
-  var privateKey3 = new PrivateKey('L4CTX79zFeksZTyyoFuPQAySfmP7fL3R41gWKTuepuN7hxuNuJwV');
+  var privateKey1 = new PrivateKey('Kz3KiyvEXzGM16hRRycJoHJsmRD3c21G2iqVp2mLUWSViidvvZB5');
+  var privateKey2 = new PrivateKey('Kyn8k5j31SR9k6ceKEa7N1KLem99LPCMC5fr87au57kXyPJkbWDT');
+  var privateKey3 = new PrivateKey('L2m1zT6oM6gmATdTTnfbqVPsXqTpaPfyvnVq15xAADtAjLoMYqan');
   var public1 = privateKey1.publicKey;
   var public2 = privateKey2.publicKey;
   var public3 = privateKey3.publicKey;
-  var address = new Address('rKwdMCVLm35iUorAor85LEQBXCr33SSA92');
+  var address = new Address('rFC2FaRuQVadQvKjPrde1rz6VufUyLZ7iM');
 
   var output = {
-    address: 'rKwdMCVLm35iUorAor85LEQBXCr33SSA92',
-    txId: '66e64ef8a3b384164b78453fa8c8194de9a473ba14f89485a0e433699daec140',
+    address: 'rFC2FaRuQVadQvKjPrde1rz6VufUyLZ7iM',
+    txId: '39673a2860b027b426b2be8d45b3100532562abd55aa1643e5c81715e8d29205',
     outputIndex: 0,
     script: new Script(address),
     satoshis: 1000000
@@ -115,7 +115,7 @@ describe('MultiSigScriptHashInput', function() {
     var address = Address.createMultisig([public1, public2, public3], 2, 'testnet', true);
     var utxo = {
       address: address.toString(),
-      txId: '66e64ef8a3b384164b78453fa8c8194de9a473ba14f89485a0e433699daec140',
+      txId: '39673a2860b027b426b2be8d45b3100532562abd55aa1643e5c81715e8d29205',
       outputIndex: 0,
       script: new Script(address),
       satoshis: 1000000
@@ -125,13 +125,13 @@ describe('MultiSigScriptHashInput', function() {
       .to(address, 1000000);
     var input = transaction.inputs[0];
     var scriptCode = input.getScriptCode();
-    scriptCode.toString('hex').should.equal('695221025c95ec627038e85b5688a9b3d84d28c5ebe66e8c8d697d498e20fe96e3b1ab1d2102cdddfc974d41a62f1f80081deee70592feb7d6e6cf6739d6592edbe7946720e72103c95924e02c240b5545089c69c6432447412b58be43fd671918bd184a5009834353ae');
+    scriptCode.toString('hex').should.equal('69522102e1897e5759759416a760e9f3656b7c18ec0961f5148546fb0b8fe48e4029c35721039fd349bcf87db08c76862cb43f655a8fadaadd5687e0ea432f43b29470fce2a72103fe128bfb02304a6946e63c3a484371759a60a9a60c5993bb011856bb069da66853ae');
   });
   it('will get the satoshis buffer for nested witness', function() {
     var address = Address.createMultisig([public1, public2, public3], 2, 'testnet', true);
     var utxo = {
       address: address.toString(),
-      txId: '66e64ef8a3b384164b78453fa8c8194de9a473ba14f89485a0e433699daec140',
+      txId: '39673a2860b027b426b2be8d45b3100532562abd55aa1643e5c81715e8d29205',
       outputIndex: 0,
       script: new Script(address),
       satoshis: 1000000
