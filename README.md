@@ -17,15 +17,6 @@ npm install ravencore-lib
 bower install ravencore-lib
 ```
 
-## Documentation
-
-The complete docs are hosted here: [ravencore documentation](http://bitcore.io/guide/). There's also a [ravencore API reference](http://bitcore.io/api/) available generated from the JSDocs of the project, where you'll find low-level details on each ravencore utility.
-
-- [Read the Developer Guide](http://bitcore.io/guide/)
-- [Read the API Reference](http://bitcore.io/api/)
-
-To get community assistance and ask for help with implementation questions, please use our [community forums](https://forum.bitcore.io/).
-
 ## Examples
 
 * [Generate a random address](https://github.com/underdarkskies/ravencore-lib/blob/master/docs/examples.md#generate-a-random-address)
@@ -41,9 +32,7 @@ To get community assistance and ask for help with implementation questions, plea
 
 ## Security
 
-We're using ravencore in production, as are [many others](http://bitcore.io#projects), but please use common sense when doing anything related to finances! We take no responsibility for your implementation decisions.
-
-If you find a security issue, please email security@bitpay.com.
+We're using ravencore in production, but please use common sense when doing anything related to finances! We take no responsibility for your implementation decisions.
 
 ## Contributing
 
