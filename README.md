@@ -81,5 +81,3 @@ or create a test coverage report (you can open `coverage/lcov-report/index.html`
 ## License
 
 Code released under [the MIT license](https://github.com/underdarkskies/ravencore-lib/blob/master/LICENSE).
-
-Copyright 2013-2017 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.
