@@ -4,8 +4,8 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 
-var ravencore = require('../..');
-var JSUtil = ravencore.util.js;
+var ritocore = require('../..');
+var JSUtil = ritocore.util.js;
 
 describe('js utils', function() {
 

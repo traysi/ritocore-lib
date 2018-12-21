@@ -1,9 +1,9 @@
 'use strict';
 
 var should = require('chai').should();
-var ravencore = require('../..');
-var Base58Check = ravencore.encoding.Base58Check;
-var Base58 = ravencore.encoding.Base58;
+var ritocore = require('../..');
+var Base58Check = ritocore.encoding.Base58Check;
+var Base58 = ritocore.encoding.Base58;
 
 describe('Base58Check', function() {
   var buf = new Buffer([0, 1, 2, 3, 253, 254, 255]);

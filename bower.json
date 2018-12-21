@@ -1,18 +1,18 @@
 {
-  "name": "ravencore-lib",
-  "main": "./ravencore-lib.min.js",
+  "name": "ritocore-lib",
+  "main": "./ritocore-lib.min.js",
   "version": "1.0.0",
-  "homepage": "https://github.com/underdarkskies",
+  "homepage": "https://github.com/traysi",
   "authors": [
     "Under"
   ],
-  "description": "A pure, powerful core for your ravencoin project.",
+  "description": "A pure, powerful core for your ritocoin project.",
   "moduleType": [
     "globals"
   ],
   "keywords": [
-    "ravencoin",
-    "ravencore",
+    "ritocoin",
+    "ritocore",
     "rvn",
     "satoshi"
   ],
