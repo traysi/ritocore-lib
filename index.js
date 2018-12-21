@@ -63,7 +63,7 @@ ritocore.deps.bnjs = require('bn.js');
 ritocore.deps.bs58 = require('bs58');
 ritocore.deps.Buffer = Buffer;
 ritocore.deps.elliptic = require('elliptic');
-ritocore.deps.nodeX16r = require('node-x16r');
+ritocore.deps.nodeX21s = require('node-x21s');
 ritocore.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking

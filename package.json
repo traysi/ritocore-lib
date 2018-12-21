@@ -46,7 +46,7 @@
     "elliptic": "=3.0.3",
     "inherits": "=2.0.1",
     "lodash": "^3.10.1",
-    "node-x16r": "traysi/node-x16r"
+    "node-x21s": "traysi/node-x21s"
   },
   "devDependencies": {
     "ritocore-build": "traysi/ritocore-build",
