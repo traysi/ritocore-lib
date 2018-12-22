@@ -4618,16 +4618,17 @@ function removeNetwork(network) {
 addNetwork({
   name: 'livenet',
   alias: 'mainnet',
-  pubkeyhash: 0x3c,
-	privatekey: 0x80,
-	scripthash: 0x7a,
-	xpubkey: 0x0488b21e,
-	xprivkey: 0x0488ade4,
-	networkMagic: 0x5241564e,
-	port: 8767,
+  pubkeyhash: 0x19,
+	privatekey: 0x8b,
+	scripthash: 0x69,
+	xpubkey: 0x0534e7ca,
+	xprivkey: 0x05347eac,
+	networkMagic: 0xa1c07b2a,
+	port: 7342,
 	dnsSeeds: [
-		'seed-rito.ritocoin.org',
-		'seed-rito.bitactivate.com'
+		's1.ritocoin.org',
+		's2.ritocoin.org',
+		's3.ritocoin.org'
   ]
 });
 
@@ -4643,8 +4644,8 @@ addNetwork({
   pubkeyhash: 0x6f,
   privatekey: 0xef,
   scripthash: 0xc4,
-  xpubkey: 0x043587cf,
-  xprivkey: 0x04358394
+  xpubkey: 0x043587cd,
+  xprivkey: 0x04358391
 });
 
 /**
@@ -4656,11 +4657,12 @@ var testnet = get('testnet');
 // Add configurable values for testnet/regtest
 
 var TESTNET = {
-  PORT: 18767,
-  NETWORK_MAGIC: BufferUtil.integerAsBuffer(0x52564e54),
+  PORT: 17342,
+  NETWORK_MAGIC: BufferUtil.integerAsBuffer(0x52534e51),
   DNS_SEEDS: [
-    'seed-testnet-rito.ritocoin.org',
-    'seed-testnet-rito.bitactivate.com'
+    'tn.s1.ritocoin.org',
+    'tn.s2.ritocoin.org',
+    'tn.s3.ritocoin.org'
   ]
 };
 
